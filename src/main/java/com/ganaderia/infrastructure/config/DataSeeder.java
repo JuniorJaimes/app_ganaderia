@@ -11,21 +11,27 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DataSeeder {
 
+   @Value("${app.admin.email}")
+    private String adminEmail;
+
+    @Value("${app.admin.password}")
+    private String adminPassword;
+
     @Bean
     public CommandLineRunner initDatabase(UsuarioRepositoryPort userRepository, PasswordEncoderPort passwordEncoder) {
         return args -> {
-            String email = "test@ganaderia.com";
+            String email = adminEmail;
             
             if (userRepository.findByEmail(email).isEmpty()) {
                 Usuario admin = Usuario.builder()
                         .email(email)
-                        .passwordHasheada(passwordEncoder.encode("password123"))
+                        .passwordHasheada(passwordEncoder.encode(adminPassword))
                         .rol(Rol.ADMIN)
                         .activo(true)
                         .build();
                 
                 userRepository.save(admin);
-                System.out.println(">>> Usuario de prueba creado: " + email + " / password123");
+                System.out.println(">>> Usuario de prueba creado: " +adminEmail);
             } else {
                 System.out.println(">>> El usuario de prueba ya existe.");
             }

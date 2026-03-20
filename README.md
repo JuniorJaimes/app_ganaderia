@@ -68,8 +68,8 @@ El proyecto utiliza una **Arquitectura Hexagonal (Puertos y Adaptadores)** para 
 ### Pasos
 1. **Clonar el repositorio**:
    ```bash
-   git clone https://github.com/tu-usuario/ganaderia_project.git
-   cd ganaderia_project
+   git clone https://github.com/tu-usuario/app_ganaderia.git
+   cd app_ganaderia
    ```
 
 2. **Configurar variables de entorno**:
