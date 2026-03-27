@@ -4,6 +4,7 @@ import com.ganaderia.application.port.out.PasswordEncoderPort;
 import com.ganaderia.application.port.out.UsuarioRepositoryPort;
 import com.ganaderia.domain.model.Rol;
 import com.ganaderia.domain.model.Usuario;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
