@@ -1,4 +1,4 @@
-package com.ganaderia.domain.model;
+package com.ganaderia.domain.model.enums;
 
 /**
  * Turno del ordeño: mañana o tarde.

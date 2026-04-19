@@ -1,4 +1,4 @@
-package com.ganaderia.domain.model;
+package com.ganaderia.domain.model.enums;
 
 /**
  * Dimensión de salud de una vaca.

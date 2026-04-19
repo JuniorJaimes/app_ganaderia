@@ -1,6 +1,6 @@
 package com.ganaderia.application.port.in;
 
-import com.ganaderia.domain.model.Rol;
+import com.ganaderia.domain.model.enums.Rol;
 import com.ganaderia.domain.model.Usuario;
 
 public interface RegistrarUsuarioUseCase {

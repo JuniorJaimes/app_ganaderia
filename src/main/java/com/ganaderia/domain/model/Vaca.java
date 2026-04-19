@@ -2,6 +2,9 @@ package com.ganaderia.domain.model;
 
 import com.ganaderia.domain.event.*;
 import com.ganaderia.domain.exception.DominioException;
+import com.ganaderia.domain.model.enums.EstadoProductivo;
+import com.ganaderia.domain.model.enums.EstadoReproductivo;
+import com.ganaderia.domain.model.enums.EstadoSalud;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,6 +21,7 @@ import java.util.UUID;
 public class Vaca {
 
     private static final int MESES_MINIMOS_ENTRE_PARTOS = 10;
+    private static final int EDAD_MINIMA_PRIMER_PARTO_MESES = 18;
 
     private final IdVaca id;
     private final String numeroArete;
@@ -31,9 +35,9 @@ public class Vaca {
     private final List<Tratamiento> tratamientos = new ArrayList<>();
     private final List<Object> eventosDominio = new ArrayList<>();
 
-    // ──────────────────────────────────────────────
+
     // Constructor principal (nuevo registro)
-    // ──────────────────────────────────────────────
+
 
     public Vaca(IdVaca id, String numeroArete, LocalDate fechaNacimiento) {
         if (numeroArete == null || numeroArete.isBlank()) {
@@ -94,12 +98,12 @@ public class Vaca {
         this.fechaUltimoParto = fechaUltimoParto;
     }
 
-    // ──────────────────────────────────────────────
+
     // Comportamiento 1: Registrar Parto
     // Invariantes: periodo mínimo entre partos, fecha coherente.
     // Efecto: cambia estado a EN_PRODUCCION, genera idTernero,
     //         resetea estado reproductivo a VACIA.
-    // ──────────────────────────────────────────────
+
 
     public String registrarParto(LocalDate fechaParto) {
         if (fechaParto == null) {
@@ -108,6 +112,16 @@ public class Vaca {
         if (fechaParto.isBefore(this.fechaNacimiento)) {
             throw new DominioException("La fecha de parto no puede ser anterior al nacimiento de la vaca");
         }
+        LocalDate fechaMinimaPrimerParto = this.fechaNacimiento.plusMonths(EDAD_MINIMA_PRIMER_PARTO_MESES);
+
+        if (fechaParto.isBefore(fechaMinimaPrimerParto)){
+            throw new DominioException(
+                    "Invariante biológico: La vaca es demasiado joven para parir. " +
+                            "Debe tener al menos " + EDAD_MINIMA_PRIMER_PARTO_MESES + " meses. " +
+                            "Fecha mínima permitida: " + fechaMinimaPrimerParto
+            );
+        }
+
         if (fechaUltimoParto != null
                 && fechaParto.isBefore(fechaUltimoParto.plusMonths(MESES_MINIMOS_ENTRE_PARTOS))) {
             throw new DominioException(
@@ -126,10 +140,10 @@ public class Vaca {
         return idTernero;
     }
 
-    // ──────────────────────────────────────────────
+
     // Comportamiento 2: Secar Vaca
     // Invariante: no se puede secar una vaca ya seca.
-    // ──────────────────────────────────────────────
+
 
     public void secar(LocalDate fechaSecado) {
         if (fechaSecado == null) {
@@ -288,7 +302,8 @@ public class Vaca {
      * Revisa si hay algún tratamiento con periodo de retiro activo.
      */
     public boolean lecheAptaParaVenta() {
-        return this.tratamientos.stream().noneMatch(Tratamiento::enPeriodoDeRetiro);
+        return this.tratamientos.
+                stream().noneMatch(Tratamiento::enPeriodoDeRetiro);
     }
 
     /**
@@ -315,9 +330,8 @@ public class Vaca {
         return eventos;
     }
 
-    // ──────────────────────────────────────────────
-    // Getters (solo lectura — Setters PROHIBIDOS)
-    // ──────────────────────────────────────────────
+
+    // Getters
 
     public IdVaca getId() { return id; }
     public String getNumeroArete() { return numeroArete; }

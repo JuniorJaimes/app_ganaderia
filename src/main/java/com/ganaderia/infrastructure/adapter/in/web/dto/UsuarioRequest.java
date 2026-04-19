@@ -1,6 +1,6 @@
 package com.ganaderia.infrastructure.adapter.in.web.dto;
 
-import com.ganaderia.domain.model.Rol;
+import com.ganaderia.domain.model.enums.Rol;
 
 public class UsuarioRequest {
     private String email;

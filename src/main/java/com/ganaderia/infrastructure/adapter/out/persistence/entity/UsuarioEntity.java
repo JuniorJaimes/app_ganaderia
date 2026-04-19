@@ -1,6 +1,6 @@
 package com.ganaderia.infrastructure.adapter.out.persistence.entity;
 
-import com.ganaderia.domain.model.Rol;
+import com.ganaderia.domain.model.enums.Rol;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

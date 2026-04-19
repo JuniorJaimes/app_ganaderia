@@ -2,7 +2,7 @@ package com.ganaderia.infrastructure.adapter.out.persistence;
 
 import com.ganaderia.domain.model.IdVaca;
 import com.ganaderia.domain.model.RegistroOrdeno;
-import com.ganaderia.domain.model.TurnoOrdeno;
+import com.ganaderia.domain.model.enums.TurnoOrdeno;
 import com.ganaderia.domain.repository.RegistroOrdenoRepository;
 import com.ganaderia.infrastructure.adapter.out.persistence.entity.RegistroOrdenoEntity;
 import com.ganaderia.infrastructure.adapter.out.persistence.mapper.RegistroOrdenoMapper;

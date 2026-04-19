@@ -3,7 +3,7 @@ package com.ganaderia.application.usecase;
 import com.ganaderia.application.port.in.RegistrarUsuarioUseCase;
 import com.ganaderia.application.port.out.PasswordEncoderPort;
 import com.ganaderia.application.port.out.UsuarioRepositoryPort;
-import com.ganaderia.domain.model.Rol;
+import com.ganaderia.domain.model.enums.Rol;
 import com.ganaderia.domain.model.Usuario;
 
 public class RegistrarUsuarioUseCaseImpl implements RegistrarUsuarioUseCase {

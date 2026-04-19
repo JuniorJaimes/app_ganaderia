@@ -2,9 +2,9 @@ package com.ganaderia.infrastructure.adapter.out.persistence;
 
 import com.ganaderia.domain.model.IdTernero;
 import com.ganaderia.domain.model.IdVaca;
-import com.ganaderia.domain.model.Sexo;
+import com.ganaderia.domain.model.enums.Sexo;
 import com.ganaderia.domain.model.Ternero;
-import com.ganaderia.domain.model.TipoIngresoTernero;
+import com.ganaderia.domain.model.enums.TipoIngresoTernero;
 import com.ganaderia.domain.repository.TerneroRepository;
 import com.ganaderia.infrastructure.adapter.out.persistence.entity.TerneroJpaEntity;
 import org.springframework.stereotype.Component;

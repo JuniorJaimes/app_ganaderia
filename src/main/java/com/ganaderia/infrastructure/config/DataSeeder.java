@@ -2,7 +2,7 @@ package com.ganaderia.infrastructure.config;
 
 import com.ganaderia.application.port.out.PasswordEncoderPort;
 import com.ganaderia.application.port.out.UsuarioRepositoryPort;
-import com.ganaderia.domain.model.Rol;
+import com.ganaderia.domain.model.enums.Rol;
 import com.ganaderia.domain.model.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;

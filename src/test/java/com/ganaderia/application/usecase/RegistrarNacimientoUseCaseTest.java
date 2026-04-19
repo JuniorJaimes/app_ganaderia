@@ -3,7 +3,7 @@ package com.ganaderia.application.usecase;
 import com.ganaderia.application.port.in.RegistrarNacimientoCommand;
 import com.ganaderia.application.port.out.EventPublisher;
 import com.ganaderia.domain.exception.DominioException;
-import com.ganaderia.domain.model.EstadoProductivo;
+import com.ganaderia.domain.model.enums.EstadoProductivo;
 import com.ganaderia.domain.model.IdVaca;
 import com.ganaderia.domain.model.Vaca;
 import com.ganaderia.domain.repository.TerneroRepository;
@@ -11,10 +11,8 @@ import com.ganaderia.domain.repository.VacaRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;

@@ -2,7 +2,7 @@ package com.ganaderia.domain.repository;
 
 import com.ganaderia.domain.model.IdVaca;
 import com.ganaderia.domain.model.RegistroOrdeno;
-import com.ganaderia.domain.model.TurnoOrdeno;
+import com.ganaderia.domain.model.enums.TurnoOrdeno;
 
 import java.time.LocalDate;
 import java.util.List;

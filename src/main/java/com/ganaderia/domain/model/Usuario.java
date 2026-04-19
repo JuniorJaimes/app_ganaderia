@@ -1,5 +1,6 @@
 package com.ganaderia.domain.model;
 
+import com.ganaderia.domain.model.enums.Rol;
 import lombok.Builder;
 import lombok.Getter;
 

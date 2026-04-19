@@ -3,6 +3,8 @@ package com.ganaderia.domain.model;
 import com.ganaderia.domain.event.TerneroAdquiridoEvent;
 import com.ganaderia.domain.event.TerneroNacidoEvent;
 import com.ganaderia.domain.exception.DominioException;
+import com.ganaderia.domain.model.enums.Sexo;
+import com.ganaderia.domain.model.enums.TipoIngresoTernero;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
