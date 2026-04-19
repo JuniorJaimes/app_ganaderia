@@ -28,16 +28,25 @@ public class VacaEntity {
     @Column(name = "fecha_ultimo_parto")
     private LocalDate fechaUltimoParto;
 
+    @Column(name = "estado_reproductivo", nullable = false)
+    private String estadoReproductivo;
+
+    @Column(name = "fecha_ultima_inseminacion")
+    private LocalDate fechaUltimaInseminacion;
+
     // JPA requiere constructor vacío
     protected VacaEntity() {}
 
     public VacaEntity(String id, String numeroArete, LocalDate fechaNacimiento,
-                      String estadoActual, LocalDate fechaUltimoParto) {
+                      String estadoActual, LocalDate fechaUltimoParto,
+                      String estadoReproductivo, LocalDate fechaUltimaInseminacion) {
         this.id = id;
         this.numeroArete = numeroArete;
         this.fechaNacimiento = fechaNacimiento;
         this.estadoActual = estadoActual;
         this.fechaUltimoParto = fechaUltimoParto;
+        this.estadoReproductivo = estadoReproductivo;
+        this.fechaUltimaInseminacion = fechaUltimaInseminacion;
     }
 
     public String getId() { return id; }
@@ -45,4 +54,6 @@ public class VacaEntity {
     public LocalDate getFechaNacimiento() { return fechaNacimiento; }
     public String getEstadoActual() { return estadoActual; }
     public LocalDate getFechaUltimoParto() { return fechaUltimoParto; }
+    public String getEstadoReproductivo() { return estadoReproductivo; }
+    public LocalDate getFechaUltimaInseminacion() { return fechaUltimaInseminacion; }
 }

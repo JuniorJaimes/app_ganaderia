@@ -20,4 +20,6 @@ public interface VacaRepository {
     void guardar(Vaca vaca);
 
     List<Vaca> listarTodas();
+
+    List<Vaca> listarVacasPorEstadoReproductivo(com.ganaderia.domain.model.enums.EstadoReproductivo estado);
 }

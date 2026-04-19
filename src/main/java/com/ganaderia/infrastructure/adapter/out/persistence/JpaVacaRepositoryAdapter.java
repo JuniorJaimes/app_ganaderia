@@ -50,4 +50,11 @@ public class JpaVacaRepositoryAdapter implements VacaRepository {
                 .map(VacaMapper::toDomain)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<Vaca> listarVacasPorEstadoReproductivo(com.ganaderia.domain.model.enums.EstadoReproductivo estado) {
+        return springDataRepo.findByEstadoReproductivo(estado.name()).stream()
+                .map(VacaMapper::toDomain)
+                .collect(Collectors.toList());
+    }
 }

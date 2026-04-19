@@ -12,4 +12,6 @@ import java.util.Optional;
 public interface SpringDataVacaRepository extends JpaRepository<VacaEntity, String> {
 
     Optional<VacaEntity> findByNumeroArete(String numeroArete);
+
+    java.util.List<VacaEntity> findByEstadoReproductivo(String estadoReproductivo);
 }

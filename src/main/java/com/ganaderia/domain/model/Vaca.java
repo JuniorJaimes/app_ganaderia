@@ -30,6 +30,7 @@ public class Vaca {
     private EstadoReproductivo estadoReproductivo;
     private EstadoSalud estadoSalud;
     private LocalDate fechaUltimoParto;
+    private LocalDate fechaUltimaInseminacion;
 
     private final List<EventoReproductivo> historialReproductivo = new ArrayList<>();
     private final List<Tratamiento> tratamientos = new ArrayList<>();
@@ -56,6 +57,7 @@ public class Vaca {
         this.estadoActual = EstadoProductivo.SECA;
         this.estadoReproductivo = EstadoReproductivo.VACIA;
         this.estadoSalud = EstadoSalud.SANA;
+        this.fechaUltimaInseminacion = null;
 
         this.eventosDominio.add(new VacaRegistradaEvent(id.value(), numeroArete));
     }
@@ -73,11 +75,13 @@ public class Vaca {
     public static Vaca reconstituir(IdVaca id, String numeroArete, LocalDate fechaNacimiento,
                                      EstadoProductivo estado, EstadoReproductivo estadoReproductivo,
                                      EstadoSalud estadoSalud, LocalDate fechaUltimoParto,
+                                     LocalDate fechaUltimaInseminacion,
                                      List<EventoReproductivo> historialReproductivo,
                                      List<Tratamiento> tratamientos) {
         Vaca vaca = new Vaca(id, numeroArete, fechaNacimiento, estado, fechaUltimoParto);
         vaca.estadoReproductivo = estadoReproductivo != null ? estadoReproductivo : EstadoReproductivo.VACIA;
         vaca.estadoSalud = estadoSalud != null ? estadoSalud : EstadoSalud.SANA;
+        vaca.fechaUltimaInseminacion = fechaUltimaInseminacion;
         if (historialReproductivo != null) {
             vaca.historialReproductivo.addAll(historialReproductivo);
         }
@@ -96,6 +100,7 @@ public class Vaca {
         this.estadoReproductivo = EstadoReproductivo.VACIA;
         this.estadoSalud = EstadoSalud.SANA;
         this.fechaUltimoParto = fechaUltimoParto;
+        this.fechaUltimaInseminacion = null;
     }
 
 
@@ -198,6 +203,7 @@ public class Vaca {
         );
         this.historialReproductivo.add(evento);
         this.estadoReproductivo = EstadoReproductivo.INSEMINADA;
+        this.fechaUltimaInseminacion = fecha;
         this.eventosDominio.add(new InseminacionRegistradaEvent(this.id.value(), fecha, toroId));
     }
 
@@ -340,10 +346,12 @@ public class Vaca {
     public EstadoReproductivo getEstadoReproductivo() { return estadoReproductivo; }
     public EstadoSalud getEstadoSalud() { return estadoSalud; }
     public LocalDate getFechaUltimoParto() { return fechaUltimoParto; }
+    public LocalDate getFechaUltimaInseminacion() { return fechaUltimaInseminacion; }
     public List<EventoReproductivo> getHistorialReproductivo() {
         return Collections.unmodifiableList(historialReproductivo);
     }
     public List<Tratamiento> getTratamientos() {
         return Collections.unmodifiableList(tratamientos);
     }
+    public static final int DIAS_GESTACION = 283;
 }

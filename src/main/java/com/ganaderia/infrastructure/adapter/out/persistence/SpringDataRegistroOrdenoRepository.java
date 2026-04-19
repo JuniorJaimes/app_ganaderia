@@ -15,4 +15,16 @@ public interface SpringDataRegistroOrdenoRepository extends JpaRepository<Regist
     List<RegistroOrdenoEntity> findByVacaId(String vacaId);
 
     Optional<RegistroOrdenoEntity> findByVacaIdAndFechaAndTurno(String vacaId, LocalDate fecha, String turno);
+
+    @org.springframework.data.jpa.repository.Query(
+        "SELECT new com.ganaderia.application.dto.ReporteProduccionDTO(r.vacaId, v.numeroArete, SUM(r.litrosLeche)) " +
+        "FROM RegistroOrdenoEntity r " +
+        "JOIN VacaEntity v ON r.vacaId = v.id " +
+        "WHERE YEAR(r.fecha) = :anio AND MONTH(r.fecha) = :mes " +
+        "GROUP BY r.vacaId, v.numeroArete"
+    )
+    List<com.ganaderia.application.dto.ReporteProduccionDTO> sumarProduccionPorMesYAnio(
+            @org.springframework.data.repository.query.Param("anio") int anio,
+            @org.springframework.data.repository.query.Param("mes") int mes
+    );
 }
