@@ -7,7 +7,6 @@ import com.ganaderia.domain.repository.VacaRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,14 +27,14 @@ public class GenerarProyeccionPartosUseCase {
                 .filter(v -> v.getFechaUltimaInseminacion() != null)
                 .map(v -> {
                     LocalDate fechaProbableParto = v.getFechaUltimaInseminacion().plusDays(Vaca.DIAS_GESTACION);
-                    LocalDate fechaSugeridaSecado = fechaProbableParto.minusMonths(2); // Usualmente se secan 2 meses antes del parto
+                    LocalDate fechaSugeridaSecado = fechaProbableParto.minusMonths(2); // Usualmente se secan 2 meses
+                                                                                       // antes del parto
                     return new ProyeccionPartoDTO(
                             v.getId().value(),
                             v.getNumeroArete(),
                             v.getFechaUltimaInseminacion(),
                             fechaProbableParto,
-                            fechaSugeridaSecado
-                    );
+                            fechaSugeridaSecado);
                 })
                 .sorted(Comparator.comparing(ProyeccionPartoDTO::getFechaProbableParto))
                 .collect(Collectors.toList());
