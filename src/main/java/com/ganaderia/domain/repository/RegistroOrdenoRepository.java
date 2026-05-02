@@ -1,6 +1,6 @@
 package com.ganaderia.domain.repository;
 
-import com.ganaderia.domain.model.IdVaca;
+import com.ganaderia.domain.model.records.IdVaca;
 import com.ganaderia.domain.model.RegistroOrdeno;
 import com.ganaderia.domain.model.enums.TurnoOrdeno;
 

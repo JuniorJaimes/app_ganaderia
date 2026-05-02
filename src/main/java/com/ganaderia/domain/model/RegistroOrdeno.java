@@ -2,6 +2,8 @@ package com.ganaderia.domain.model;
 
 import com.ganaderia.domain.exception.DominioException;
 import com.ganaderia.domain.model.enums.TurnoOrdeno;
+import com.ganaderia.domain.model.records.IdVaca;
+import com.ganaderia.domain.model.records.VolumenLeche;
 
 import java.time.LocalDate;
 

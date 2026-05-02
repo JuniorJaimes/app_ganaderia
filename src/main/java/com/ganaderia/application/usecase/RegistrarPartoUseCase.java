@@ -2,7 +2,7 @@ package com.ganaderia.application.usecase;
 
 import com.ganaderia.application.dto.RegistrarPartoDTO;
 import com.ganaderia.application.port.out.EventPublisher;
-import com.ganaderia.domain.model.IdVaca;
+import com.ganaderia.domain.model.records.IdVaca;
 import com.ganaderia.domain.model.Vaca;
 import com.ganaderia.domain.repository.VacaRepository;
 

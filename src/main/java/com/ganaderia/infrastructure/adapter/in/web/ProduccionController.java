@@ -2,7 +2,7 @@ package com.ganaderia.infrastructure.adapter.in.web;
 
 import com.ganaderia.application.dto.RegistrarOrdenoDTO;
 import com.ganaderia.application.usecase.RegistrarOrdenoUseCase;
-import com.ganaderia.domain.model.IdVaca;
+import com.ganaderia.domain.model.records.IdVaca;
 import com.ganaderia.domain.model.RegistroOrdeno;
 import com.ganaderia.domain.repository.RegistroOrdenoRepository;
 import org.springframework.http.HttpStatus;

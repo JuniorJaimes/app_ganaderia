@@ -2,6 +2,7 @@ package com.ganaderia.domain.model;
 
 import com.ganaderia.domain.exception.DominioException;
 import com.ganaderia.domain.model.enums.EstadoProductivo;
+import com.ganaderia.domain.model.records.IdVaca;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

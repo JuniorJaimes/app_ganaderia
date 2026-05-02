@@ -1,4 +1,4 @@
-package com.ganaderia.domain.model;
+package com.ganaderia.domain.model.records;
 
 /**
  * Value Object que representa el volumen de leche en litros de un ordeño.

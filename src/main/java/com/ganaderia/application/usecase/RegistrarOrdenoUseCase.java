@@ -6,6 +6,8 @@ import com.ganaderia.domain.event.ProduccionRegistradaEvent;
 import com.ganaderia.domain.exception.DominioException;
 import com.ganaderia.domain.model.*;
 import com.ganaderia.domain.model.enums.TurnoOrdeno;
+import com.ganaderia.domain.model.records.IdVaca;
+import com.ganaderia.domain.model.records.VolumenLeche;
 import com.ganaderia.domain.repository.RegistroOrdenoRepository;
 import com.ganaderia.domain.repository.VacaRepository;
 

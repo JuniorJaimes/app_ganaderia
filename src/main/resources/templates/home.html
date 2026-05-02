@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacienda Digital - Panel Principal</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="dashboard-navbar">
+        <div class="navbar-brand">
+            <!-- Icono simple de hojas/naturaleza -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22c-4.97 0-9-4.03-9-9 0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z"></path>
+                <path d="M12 13V2"></path>
+                <path d="M12 13c-2.5 0-4.5-2.01-4.5-4.5S9.5 4 12 4"></path>
+            </svg>
+            Hacienda Digital
+        </div>
+        <div class="navbar-user">
+            <span th:text="${email}">usuario@hacienda.com</span>
+            <form th:action="@{/logout}" method="post" class="logout-form">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <button type="submit" class="btn-logout">Cerrar Sesión</button>
+            </form>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <section class="welcome-section">
+            <h2>¡Bienvenido a su Panel de Control!</h2>
+            <p>Desde aquí puede gestionar las operaciones de la finca.</p>
+            <div th:each="auth : ${authorities}" class="role-badge">
+                <span th:text="${auth.authority}">ROL</span>
+            </div>
+        </section>
+
+        <section class="dashboard-grid">
+            <!-- Tarjetas de módulos -->
+            <div class="dashboard-card">
+                <h3>Gestión de Ganado</h3>
+                <p>Administre vacas, terneros y sus historiales.</p>
+                <button class="btn btn-primary" disabled>Próximamente</button>
+            </div>
+            <div class="dashboard-card">
+                <h3>Producción Lechera</h3>
+                <p>Registre y consulte los niveles de ordeño diarios.</p>
+                <button class="btn btn-primary" disabled>Próximamente</button>
+            </div>
+            <div class="dashboard-card" sec:authorize="hasRole('ADMIN')">
+                <h3>Administración</h3>
+                <p>Gestione el personal y permisos del sistema.</p>
+                <a th:href="@{/register}" class="btn btn-accent" style="text-decoration: none; display: block;">Registrar Personal</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

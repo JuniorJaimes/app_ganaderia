@@ -1,6 +1,6 @@
 package com.ganaderia.domain.repository;
 
-import com.ganaderia.domain.model.IdTernero;
+import com.ganaderia.domain.model.records.IdTernero;
 import com.ganaderia.domain.model.Ternero;
 
 import java.util.Optional;

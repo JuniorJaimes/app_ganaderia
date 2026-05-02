@@ -3,6 +3,7 @@ package com.ganaderia.infrastructure.adapter.in.web;
 import com.ganaderia.application.dto.RegistrarVacaDTO;
 import com.ganaderia.application.usecase.RegistrarVacaUseCase;
 import com.ganaderia.domain.model.Vaca;
+import com.ganaderia.domain.model.records.IdVaca;
 import com.ganaderia.domain.repository.VacaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +41,7 @@ public class VacaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Map<String, Object>> obtenerPorId(@PathVariable String id) {
-        Vaca vaca = vacaRepository.obtenerPorId(new com.ganaderia.domain.model.IdVaca(id));
+        Vaca vaca = vacaRepository.obtenerPorId(new IdVaca(id));
         return ResponseEntity.ok(toResponse(vaca));
     }
 

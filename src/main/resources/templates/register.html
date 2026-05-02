@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Ganadería</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Nuevo Usuario</h1>
+                <p>Cree una cuenta para el personal de la hacienda</p>
+            </div>
+            
+            <div th:if="${error}" class="alert alert-error">
+                <p th:text="${error}"></p>
+            </div>
+            
+            <form th:action="@{/register}" method="post">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <div class="form-group">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="usuario@hacienda.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="••••••••" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rol" class="form-label">Rol del Usuario</label>
+                    <select id="rol" name="rol" class="form-control" required>
+                        <option th:each="rolOpt : ${roles}" 
+                                th:value="${rolOpt}" 
+                                th:text="${rolOpt}">Rol</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-accent">Registrar Usuario</button>
+                <a th:href="@{/home}" class="btn btn-outline" style="text-decoration: none; display: block; text-align: center;">Volver al Inicio</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

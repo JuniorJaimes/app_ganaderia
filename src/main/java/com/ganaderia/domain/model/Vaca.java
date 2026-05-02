@@ -5,6 +5,7 @@ import com.ganaderia.domain.exception.DominioException;
 import com.ganaderia.domain.model.enums.EstadoProductivo;
 import com.ganaderia.domain.model.enums.EstadoReproductivo;
 import com.ganaderia.domain.model.enums.EstadoSalud;
+import com.ganaderia.domain.model.records.IdVaca;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

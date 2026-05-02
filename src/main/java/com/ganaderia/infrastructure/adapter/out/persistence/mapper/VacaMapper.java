@@ -3,6 +3,7 @@ package com.ganaderia.infrastructure.adapter.out.persistence.mapper;
 import com.ganaderia.domain.model.*;
 import com.ganaderia.domain.model.enums.EstadoProductivo;
 import com.ganaderia.domain.model.enums.EstadoReproductivo;
+import com.ganaderia.domain.model.records.IdVaca;
 import com.ganaderia.infrastructure.adapter.out.persistence.entity.VacaEntity;
 
 /**

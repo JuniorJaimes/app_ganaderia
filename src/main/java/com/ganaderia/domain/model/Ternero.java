@@ -5,6 +5,8 @@ import com.ganaderia.domain.event.TerneroNacidoEvent;
 import com.ganaderia.domain.exception.DominioException;
 import com.ganaderia.domain.model.enums.Sexo;
 import com.ganaderia.domain.model.enums.TipoIngresoTernero;
+import com.ganaderia.domain.model.records.IdTernero;
+import com.ganaderia.domain.model.records.IdVaca;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

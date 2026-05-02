@@ -2,7 +2,7 @@ package com.ganaderia.application.usecase;
 
 import com.ganaderia.application.port.in.RegistrarAdquisicionTerneroCommand;
 import com.ganaderia.domain.exception.DominioException;
-import com.ganaderia.domain.model.IdTernero;
+import com.ganaderia.domain.model.records.IdTernero;
 import com.ganaderia.domain.model.enums.Sexo;
 import com.ganaderia.domain.model.Ternero;
 import com.ganaderia.domain.repository.TerneroRepository;

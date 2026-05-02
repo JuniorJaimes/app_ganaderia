@@ -2,8 +2,8 @@ package com.ganaderia.application.usecase;
 
 import com.ganaderia.application.port.in.RegistrarNacimientoCommand;
 import com.ganaderia.domain.exception.DominioException;
-import com.ganaderia.domain.model.IdTernero;
-import com.ganaderia.domain.model.IdVaca;
+import com.ganaderia.domain.model.records.IdTernero;
+import com.ganaderia.domain.model.records.IdVaca;
 import com.ganaderia.domain.model.enums.Sexo;
 import com.ganaderia.domain.model.Ternero;
 import com.ganaderia.domain.model.Vaca;

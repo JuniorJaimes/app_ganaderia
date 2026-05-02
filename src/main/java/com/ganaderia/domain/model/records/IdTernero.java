@@ -1,4 +1,4 @@
-package com.ganaderia.domain.model;
+package com.ganaderia.domain.model.records;
 
 public record IdTernero(String value) {
     public IdTernero {
