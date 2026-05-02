@@ -16,12 +16,11 @@ import java.util.Map;
 @Component
 public class JwtTokenProviderAdapter implements TokenProviderPort {
 
-    // En producción esto debería venir de configuración/entorno
-    @Value("${jwt.secret:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}")
+    @Value("${jwt.secret}")
     private String secretKey;
 
-    @Value("${jwt.expiration.ms:86400000}")
-    private long jwtExpirationMs; // 1 día por defecto
+    @Value("${jwt.expiration.ms}")
+    private long jwtExpirationMs;
 
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(secretKey.getBytes());

@@ -6,9 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletResponse;
 
 @Controller
 public class HomeViewController {
@@ -22,15 +19,5 @@ public class HomeViewController {
             model.addAttribute("authorities", userDetails.getAuthorities());
         }
         return "home";
-    }
-
-    @PostMapping("/logout")
-    public String logout(HttpServletResponse response) {
-        Cookie cookie = new Cookie("JWT_TOKEN", null);
-        cookie.setPath("/");
-        cookie.setHttpOnly(true);
-        cookie.setMaxAge(0);
-        response.addCookie(cookie);
-        return "redirect:/login?logout";
     }
 }

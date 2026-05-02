@@ -5,6 +5,7 @@ import com.ganaderia.application.port.in.RegistrarUsuarioUseCase;
 import com.ganaderia.domain.model.enums.Rol;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,9 @@ public class WebAuthController {
 
     private final AutenticarUsuarioUseCase autenticarUsuarioUseCase;
     private final RegistrarUsuarioUseCase registrarUsuarioUseCase;
+    
+    @Value("${jwt.expiration.ms:3600000}")
+    private long jwtExpirationMs;
 
     public WebAuthController(AutenticarUsuarioUseCase autenticarUsuarioUseCase, RegistrarUsuarioUseCase registrarUsuarioUseCase) {
         this.autenticarUsuarioUseCase = autenticarUsuarioUseCase;
@@ -45,7 +49,7 @@ public class WebAuthController {
             cookie.setHttpOnly(true);
             cookie.setPath("/");
             // cookie.setSecure(true); // Dejar comentado si se prueba en localhost sin HTTPS
-            cookie.setMaxAge(24 * 60 * 60); // 1 día
+            cookie.setMaxAge((int) (jwtExpirationMs / 1000)); 
             response.addCookie(cookie);
             return "redirect:/home";
         } catch (Exception e) {
